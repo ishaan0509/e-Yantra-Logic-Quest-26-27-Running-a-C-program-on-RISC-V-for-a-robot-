@@ -1,6 +1,6 @@
 # e-Yantra Robotics Competition 2026-27: Logic Quest
 
-**Team eYRC#1746:** Ishaan Vaidya, Akshat Deshmukh
+**Team eYRC#1746:** Ishaan Vaidya, Akshat Deshmukh, Arya Suryavanshi, Soumil Chavan
 
 Logic Quest is the FPGA theme of eYRC 2026-27. The robot has no microcontroller. Its brain is an FPGA (Terasic DE0-Nano, Intel Cyclone IV E `EP4CE22F17C6`), and on that FPGA runs hardware we designed ourselves: a **RISC-V processor** that executes a **C program we wrote**, alongside an SPI master and a PWM generator.
 
