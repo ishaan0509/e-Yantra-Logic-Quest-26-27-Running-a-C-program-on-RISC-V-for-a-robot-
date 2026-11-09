@@ -1,0 +1,1058 @@
+
+.temp.file.elf:     file format elf32-littleriscv
+
+SYMBOL TABLE:
+00000000 l    d  .init	00000000 .init
+00000058 l    d  .text	00000000 .text
+02000000 l    d  .data	00000000 .data
+02000000 l    d  .bss	00000000 .bss
+02000000 l    d  .stack	00000000 .stack
+00000000 l    d  .riscv.attributes	00000000 .riscv.attributes
+00000000 l    d  .comment	00000000 .comment
+00000000 l    d  .debug_aranges	00000000 .debug_aranges
+00000000 l    d  .debug_info	00000000 .debug_info
+00000000 l    d  .debug_abbrev	00000000 .debug_abbrev
+00000000 l    d  .debug_line	00000000 .debug_line
+00000000 l    d  .debug_str	00000000 .debug_str
+00000000 l    d  .debug_loc	00000000 .debug_loc
+00000000 l    d  .debug_ranges	00000000 .debug_ranges
+00000000 l    d  .debug_frame	00000000 .debug_frame
+00000000 l    d  .debug_macro	00000000 .debug_macro
+00000000 l    df *ABS*	00000000 
+00000a6c l     F .text	000000e4 lq_node
+00000000 l    df *ABS*	00000000 tls.c
+00000000 l    df *ABS*	00000000 
+000008cc l       .debug_info	00000000 
+000008cc l       .debug_info	00000000 
+000008cc l       .debug_info	00000000 
+000008cc l       .debug_info	00000000 
+000008cc l       .debug_info	00000000 
+000008cc l       .debug_info	00000000 
+000008cc l       .debug_info	00000000 
+000008cc l       .debug_info	00000000 
+000008cc l       .debug_info	00000000 
+000008cc l       .debug_info	00000000 
+000008cc l       .debug_info	00000000 
+000008cc l       .debug_info	00000000 
+000008cc l       .debug_info	00000000 
+000008cc l       .debug_info	00000000 
+000008cc l       .debug_info	00000000 
+000008cc l       .debug_info	00000000 
+000008cc l       .debug_info	00000000 
+000008cc l       .debug_info	00000000 
+000008cc l       .debug_info	00000000 
+000008cc l       .debug_info	00000000 
+000008cc l       .debug_info	00000000 
+000008cc l       .debug_info	00000000 
+000008cc l       .debug_info	00000000 
+000008cc l       .debug_info	00000000 
+000008cc l       .debug_info	00000000 
+000008cc l       .debug_info	00000000 
+00000000 g       *ABS*	00000000 __data_size
+02000800 g       .data	00000000 __global_pointer$
+02000000 g       .bss	00000000 __tls_base
+00001000 g       *ABS*	00000000 __flash_size
+000000b8 g       *ABS*	00000000 __stack_size
+00000000 g       *ABS*	00000000 __bss_size
+00000b58 g     F .text	00000024 memcpy
+02000000 g       .bss	00000000 __bss_end
+00000000 g       *ABS*	00000000 __tbss_size
+00000b50 g     F .text	00000008 _set_tls
+00000000 g     F .init	00000000 _start
+000008cc  w      .debug_info	00000000 .hidden Path_Planner_Dec.c.19e7d14f
+02000000 g       *ABS*	00000000 __ram
+02000000 g       .bss	00000000 __data_end
+00000b98 g       .text	00000000 __text_end
+02000000 g       .bss	00000000 __bss_start
+00000b7c g     F .text	0000001c memset
+00000058 g     F .text	00000a14 main
+00000200 g       *ABS*	00000000 __ram_size
+02000200 g       .init	00000000 __stack
+00000000 g     F *ABS*	00000000 vfscanf
+00000b98 g       *ABS*	00000000 __data_source
+00000000 g       *ABS*	00000000 __flash
+02000000 g       .data	00000000 __data_start
+00000000 g     F *ABS*	00000000 vfprintf
+
+
+
+Disassembly of section .init:
+
+00000000 <_start>:
+   0:	    02000117          	auipc	x2,0x2000
+   4:	    20010113          	addi	x2,x2,512 # 2000200 <__stack>
+   8:	    02000197          	auipc	x3,0x2000
+   c:	    7f818193          	addi	x3,x3,2040 # 2000800 <__global_pointer$>
+  10:	    02000517          	auipc	x10,0x2000
+  14:	    ff050513          	addi	x10,x10,-16 # 2000000 <__bss_end>
+  18:	    00001597          	auipc	x11,0x1
+  1c:	    b8058593          	addi	x11,x11,-1152 # b98 <__data_source>
+  20:	    00000613          	addi	x12,x0,0
+  24:	    335000ef          	jal	x1,b58 <memcpy>
+  28:	    02000517          	auipc	x10,0x2000
+  2c:	    fd850513          	addi	x10,x10,-40 # 2000000 <__bss_end>
+  30:	    00000593          	addi	x11,x0,0
+  34:	    00000613          	addi	x12,x0,0
+  38:	    345000ef          	jal	x1,b7c <memset>
+  3c:	    02000517          	auipc	x10,0x2000
+  40:	    fc450513          	addi	x10,x10,-60 # 2000000 <__bss_end>
+  44:	    30d000ef          	jal	x1,b50 <_set_tls>
+  48:	    00000513          	addi	x10,x0,0
+  4c:	    00000593          	addi	x11,x0,0
+  50:	    008000ef          	jal	x1,58 <main>
+  54:	/-- 0000006f          	jal	x0,54 <_start+0x54>
+
+Disassembly of section .text:
+
+00000058 <main>:
+     ### }
+     ### 
+     ### // ##############################################
+     ### 
+     ### // main function
+     ### int main(int argc, char const *argv[]) {
+  58:	                                              fc010113          	addi	x2,x2,-64
+  5c:	                                              02112e23          	sw	x1,60(x2)
+  60:	                                              02812c23          	sw	x8,56(x2)
+     ###         #define CPU_DONE            (* (volatile uint8_t  * ) 0x0200001c)
+     ### 
+     ###     #endif
+     ### 
+     ###     // read once here: for the next run, the program may write IS_ENCRYPTED = 0
+     ###     uint8_t is_encrypted = IS_ENCRYPTED;
+  64:	                                              020007b7          	lui	x15,0x2000
+  68:	                                              0087c403          	lbu	x8,8(x15) # 2000008 <__bss_end+0x8>
+     ###     // array to store the planned path
+     ###     uint8_t path_planned[40];
+     ###     // index to keep track of the path_planned array
+     ###     uint8_t idx = 0;
+     ### 
+     ###     uint8_t start_point = CURRENT_NODE;   // where the bot is
+  6c:	                                              00d7c803          	lbu	x16,13(x15)
+     ###     uint8_t is_encrypted = IS_ENCRYPTED;
+  70:	                                              0ff47413          	andi	x8,x8,255
+     ###     uint8_t start_point = CURRENT_NODE;   // where the bot is
+  74:	                                              0ff87813          	andi	x16,x16,255
+     ###     // set path_planned[] and idx, message[] when is_encrypted = 1, and the
+     ###     // inputs for the next run (see Outputs at the top of this file)
+     ### 
+     ###     uint32_t lq_hi, lq_lo;                  // the decrypted code: bytes 0..3 and 4..7
+     ### 
+     ###     if (is_encrypted) {
+  78:	/-------------------------------------------- 5c040863          	beq	x8,x0,648 <__ram_size+0x448>
+     ###         // decrypted code: byte 0 done flag, bytes 1..5 message, byte 6 next pick-up,
+     ###         // byte 7 drop
+     ###         lq_hi = ENCRYPTED_HI;
+  7c:	|                                             0007af83          	lw	x31,0(x15)
+     ###         lq_lo = ENCRYPTED_LO;
+     ###         LQ_DECRYPT(lq_hi, lq_lo);
+  80:	|                                             e5f60737          	lui	x14,0xe5f60
+     ###         lq_lo = ENCRYPTED_LO;
+  84:	|                                             0047ae83          	lw	x29,4(x15)
+     ###         LQ_DECRYPT(lq_hi, lq_lo);
+  88:	|                                             da09b8b7          	lui	x17,0xda09b
+  8c:	|                                             a1b2c7b7          	lui	x15,0xa1b2c
+  90:	|                                             21749337          	lui	x6,0x21749
+  94:	|                                             00100593          	addi	x11,x0,1
+  98:	|                                             293a06b7          	lui	x13,0x293a0
+  9c:	|                                             71870713          	addi	x14,x14,1816 # e5f60718 <__global_pointer$+0xe3f5ff18>
+  a0:	|                                             3d478793          	addi	x15,x15,980 # a1b2c3d4 <__global_pointer$+0x9fb2bbd4>
+  a4:	|                                             65c88893          	addi	x17,x17,1628 # da09b65c <__global_pointer$+0xd809ae5c>
+  a8:	|                                             fe330313          	addi	x6,x6,-29 # 21748fe3 <__global_pointer$+0x1f7487e3>
+  ac:	|                                             02000f13          	addi	x30,x0,32
+     ### int main(int argc, char const *argv[]) {
+  b0:	|                                      /----> 01300513          	addi	x10,x0,19
+     ###         LQ_DECRYPT(lq_hi, lq_lo);
+  b4:	|                                      |  /-> 0106de13          	srli	x28,x13,0x10
+  b8:	|                                      |  |   0116d693          	srli	x13,x13,0x11
+  bc:	|                                      |  |   01f71613          	slli	x12,x14,0x1f
+  c0:	|                                      |  |   01069693          	slli	x13,x13,0x10
+  c4:	|                                      |  |   00d666b3          	or	x13,x12,x13
+  c8:	|                                      |  |   00175713          	srli	x14,x14,0x1
+  cc:	|                                      |  |   01f79613          	slli	x12,x15,0x1f
+  d0:	|                                      |  |   01fe1e13          	slli	x28,x28,0x1f
+  d4:	|                                      |  |   0017d793          	srli	x15,x15,0x1
+  d8:	|                                      |  |   fff50513          	addi	x10,x10,-1
+  dc:	|                                      |  |   00e66733          	or	x14,x12,x14
+  e0:	|                                      |  |   00fe67b3          	or	x15,x28,x15
+  e4:	|                                      |  \-- fc0518e3          	bne	x10,x0,b4 <main+0x5c>
+  e8:	|                                      |      01c7d513          	srli	x10,x15,0x1c
+  ec:	|                                      |      00857e13          	andi	x28,x10,8
+  f0:	|                                      |      00251613          	slli	x12,x10,0x2
+  f4:	|     /--------------------------------|----- 520e0e63          	beq	x28,x0,630 <__ram_size+0x430>
+  f8:	|     |                                |      01c67613          	andi	x12,x12,28
+  fc:	|     |                                |      00c35633          	srl	x12,x6,x12
+ 100:	|     |  /-----------------------------|----> 00f67613          	andi	x12,x12,15
+ 104:	|     |  |                             |      00a64633          	xor	x12,x12,x10
+ 108:	|     |  |                             |      01c61613          	slli	x12,x12,0x1c
+ 10c:	|     |  |                             |      00c7c7b3          	xor	x15,x15,x12
+ 110:	|     |  |                             |      0015d613          	srli	x12,x11,0x1
+ 114:	|     |  |                             |      00c74733          	xor	x14,x14,x12
+ 118:	|     |  |                             |      01f59613          	slli	x12,x11,0x1f
+ 11c:	|     |  |                             |      00158593          	addi	x11,x11,1
+ 120:	|     |  |                             |      00c6c6b3          	xor	x13,x13,x12
+ 124:	|     |  |                             \----- f9e596e3          	bne	x11,x30,b0 <main+0x58>
+ 128:	|     |  |                                    00eec633          	xor	x12,x29,x14
+ 12c:	|     |  |                                    a9703f37          	lui	x30,0xa9703
+ 130:	|     |  |                                    d21c9eb7          	lui	x29,0xd21c9
+ 134:	|     |  |                                    00ffcfb3          	xor	x31,x31,x15
+ 138:	|     |  |                                    01f00e13          	addi	x28,x0,31
+ 13c:	|     |  |                                    fe5e8e93          	addi	x29,x29,-27 # d21c8fe5 <__global_pointer$+0xd01c87e5>
+ 140:	|     |  |                                    64bf0f13          	addi	x30,x30,1611 # a970364b <__global_pointer$+0xa7702e4b>
+ 144:	|     |  |                             /----> 00000893          	addi	x17,x0,0
+ 148:	|     |  |                             |      00000313          	addi	x6,x0,0
+ 14c:	|     |  |                             |      01000293          	addi	x5,x0,16
+ 150:	|     |  |                             |  /-> 00f65593          	srli	x11,x12,0xf
+ 154:	|     |  |                             |  |   01e65513          	srli	x10,x12,0x1e
+ 158:	|     |  |                             |  |   00257513          	andi	x10,x10,2
+ 15c:	|     |  |                             |  |   0015f593          	andi	x11,x11,1
+ 160:	|     |  |                             |  |   00a5e5b3          	or	x11,x11,x10
+ 164:	|     |  |                             |  |   00dfd513          	srli	x10,x31,0xd
+ 168:	|     |  |                             |  |   00457513          	andi	x10,x10,4
+ 16c:	|     |  |                             |  |   00a5e5b3          	or	x11,x11,x10
+ 170:	|     |  |                             |  |   01cfd513          	srli	x10,x31,0x1c
+ 174:	|     |  |                             |  |   00857513          	andi	x10,x10,8
+ 178:	|     |  |                             |  |   00a5e5b3          	or	x11,x11,x10
+ 17c:	|     |  |                             |  |   00259513          	slli	x10,x11,0x2
+ 180:	|     |  |                             |  |   0085f593          	andi	x11,x11,8
+ 184:	|     |  |                             |  |   00161613          	slli	x12,x12,0x1
+ 188:	|     |  |                             |  |   001f9f93          	slli	x31,x31,0x1
+ 18c:	|     |  |              /--------------|--|-- 4a058663          	beq	x11,x0,638 <__ram_size+0x438>
+ 190:	|     |  |              |              |  |   01c57593          	andi	x11,x10,28
+ 194:	|     |  |              |              |  |   00bf55b3          	srl	x11,x30,x11
+ 198:	|     |  |              |  /-----------|--|-> 01c8d513          	srli	x10,x17,0x1c
+ 19c:	|     |  |              |  |           |  |   00f5f593          	andi	x11,x11,15
+ 1a0:	|     |  |              |  |           |  |   00431313          	slli	x6,x6,0x4
+ 1a4:	|     |  |              |  |           |  |   00489893          	slli	x17,x17,0x4
+ 1a8:	|     |  |              |  |           |  |   fff28293          	addi	x5,x5,-1
+ 1ac:	|     |  |              |  |           |  |   00656333          	or	x6,x10,x6
+ 1b0:	|     |  |              |  |           |  |   00b8e8b3          	or	x17,x17,x11
+ 1b4:	|     |  |              |  |           |  \-- f8029ee3          	bne	x5,x0,150 <__stack_size+0x98>
+ 1b8:	|     |  |              |  |           |      001e5613          	srli	x12,x28,0x1
+ 1bc:	|     |  |              |  |           |      01c7d593          	srli	x11,x15,0x1c
+ 1c0:	|     |  |              |  |           |      00c74733          	xor	x14,x14,x12
+ 1c4:	|     |  |              |  |           |      0085f513          	andi	x10,x11,8
+ 1c8:	|     |  |              |  |           |      01fe1613          	slli	x12,x28,0x1f
+ 1cc:	|     |  |              |  |           |      00c6c6b3          	xor	x13,x13,x12
+ 1d0:	|     |  |              |  |           |      00259613          	slli	x12,x11,0x2
+ 1d4:	|     |  |              |  |  /--------|----- 46050663          	beq	x10,x0,640 <__ram_size+0x440>
+ 1d8:	|     |  |              |  |  |        |      01c67613          	andi	x12,x12,28
+ 1dc:	|     |  |              |  |  |        |      00cf5633          	srl	x12,x30,x12
+ 1e0:	|     |  |              |  |  |  /-----|----> 00f67613          	andi	x12,x12,15
+ 1e4:	|     |  |              |  |  |  |     |      00b64633          	xor	x12,x12,x11
+ 1e8:	|     |  |              |  |  |  |     |      01c61613          	slli	x12,x12,0x1c
+ 1ec:	|     |  |              |  |  |  |     |      00c7c7b3          	xor	x15,x15,x12
+ 1f0:	|     |  |              |  |  |  |     |      01300613          	addi	x12,x0,19
+ 1f4:	|     |  |              |  |  |  |     |  /-> 01f75513          	srli	x10,x14,0x1f
+ 1f8:	|     |  |              |  |  |  |     |  |   01f7d593          	srli	x11,x15,0x1f
+ 1fc:	|     |  |              |  |  |  |     |  |   00179793          	slli	x15,x15,0x1
+ 200:	|     |  |              |  |  |  |     |  |   00f567b3          	or	x15,x10,x15
+ 204:	|     |  |              |  |  |  |     |  |   00171713          	slli	x14,x14,0x1
+ 208:	|     |  |              |  |  |  |     |  |   01f6d513          	srli	x10,x13,0x1f
+ 20c:	|     |  |              |  |  |  |     |  |   01059593          	slli	x11,x11,0x10
+ 210:	|     |  |              |  |  |  |     |  |   00169693          	slli	x13,x13,0x1
+ 214:	|     |  |              |  |  |  |     |  |   fff60613          	addi	x12,x12,-1
+ 218:	|     |  |              |  |  |  |     |  |   00e56733          	or	x14,x10,x14
+ 21c:	|     |  |              |  |  |  |     |  |   00d5e6b3          	or	x13,x11,x13
+ 220:	|     |  |              |  |  |  |     |  \-- fc061ae3          	bne	x12,x0,1f4 <__stack_size+0x13c>
+ 224:	|     |  |              |  |  |  |     |      fffe0e13          	addi	x28,x28,-1
+ 228:	|     |  |              |  |  |  |     |      0067cfb3          	xor	x31,x15,x6
+ 22c:	|     |  |              |  |  |  |     |      01174633          	xor	x12,x14,x17
+ 230:	|     |  |              |  |  |  |     \----- f00e1ae3          	bne	x28,x0,144 <__stack_size+0x8c>
+     ###         end_point = (uint8_t)(lq_lo);               // byte 7: drop node
+     ### 
+     ###         // start_point already holds this move's start, so the inputs for the
+     ###         // next move can be written now
+     ###         if ((uint8_t)(lq_hi >> 24) == 0) {          // byte 0: done flag 0, so write the next move
+ 234:	|     |  |              |  |  |  |            018fdf93          	srli	x31,x31,0x18
+     ###         end_point = (uint8_t)(lq_lo);               // byte 7: drop node
+ 238:	|     |  |              |  |  |  |            0ff67793          	andi	x15,x12,255
+     ###         if ((uint8_t)(lq_hi >> 24) == 0) {          // byte 0: done flag 0, so write the next move
+ 23c:	|     |  |              |  |  |  |  /-------- 000f9e63          	bne	x31,x0,258 <__ram_size+0x58>
+     ###             IS_ENCRYPTED = 0;
+ 240:	|     |  |              |  |  |  |  |         02000737          	lui	x14,0x2000
+ 244:	|     |  |              |  |  |  |  |         00070423          	sb	x0,8(x14) # 2000008 <__bss_end+0x8>
+     ###             CURRENT_NODE = end_point;                   // the next move starts at the drop node
+     ###             NEXT_NODE    = (uint8_t)(lq_lo >> 8);       // byte 6: next pick-up node
+ 248:	|     |  |              |  |  |  |  |         00865613          	srli	x12,x12,0x8
+     ###             CURRENT_NODE = end_point;                   // the next move starts at the drop node
+ 24c:	|     |  |              |  |  |  |  |         00f706a3          	sb	x15,13(x14)
+     ###             NEXT_NODE    = (uint8_t)(lq_lo >> 8);       // byte 6: next pick-up node
+ 250:	|     |  |              |  |  |  |  |         0ff67613          	andi	x12,x12,255
+ 254:	|     |  |              |  |  |  |  |         00c70623          	sb	x12,12(x14)
+     ###     path[0] = (uint8_t)start;
+ 258:	|     |  |              |  |  |  |  >-------> 01010423          	sb	x16,8(x2)
+     ###     if (start < 1 || start > LQ_NODES || goal < 1 || goal > LQ_NODES || start == goal) {
+ 25c:	|     |  |              |  |  |  |  |         fff80713          	addi	x14,x16,-1
+ 260:	|     |  |              |  |  |  |  |         02300693          	addi	x13,x0,35
+     ###         return 1;                           // not a node number, or already there
+ 264:	|     |  |              |  |  |  |  |         00100513          	addi	x10,x0,1
+     ###     if (start < 1 || start > LQ_NODES || goal < 1 || goal > LQ_NODES || start == goal) {
+ 268:	|  /--|--|--------------|--|--|--|--|-------- 5ae6e063          	bltu	x13,x14,808 <__ram_size+0x608>
+ 26c:	|  |  |  |              |  |  |  |  |         fff78713          	addi	x14,x15,-1
+ 270:	|  |  |  |              |  |  |  |  |         0ff77713          	andi	x14,x14,255
+ 274:	|  +--|--|--------------|--|--|--|--|-------- 58e6ea63          	bltu	x13,x14,808 <__ram_size+0x608>
+ 278:	|  +--|--|--------------|--|--|--|--|-------- 58f80863          	beq	x16,x15,808 <__ram_size+0x608>
+     ###     q = LQ_Q((goal << 4) | (start << 16), LQ_UP);
+ 27c:	|  |  |  |              |  |  |  |  |         00479513          	slli	x10,x15,0x4
+ 280:	|  |  |  |              |  |  |  |  |         01081813          	slli	x16,x16,0x10
+ 284:	|  |  |  |              |  |  |  |  |         01056533          	or	x10,x10,x16
+ 288:	|  |  |  |              |  |  |  |  |         00100593          	addi	x11,x0,1
+     ###     q = lq_node(q,  1,  1,  5,  4, 1285);  // N1  theta: route 1, offset 5
+ 28c:	|  |  |  |  /-----------|--|--|--|--|-------> 50500813          	addi	x16,x0,1285
+ 290:	|  |  |  |  |           |  |  |  |  |         00400793          	addi	x15,x0,4
+ 294:	|  |  |  |  |           |  |  |  |  |         00500713          	addi	x14,x0,5
+ 298:	|  |  |  |  |           |  |  |  |  |         00100693          	addi	x13,x0,1
+ 29c:	|  |  |  |  |           |  |  |  |  |         00100613          	addi	x12,x0,1
+ 2a0:	|  |  |  |  |           |  |  |  |  |         7cc000ef          	jal	x1,a6c <lq_node>
+     ###     q = lq_node(q,  2,  6,  6,  4,    0);  // N2  tree: below it ids 6..6, parent N4
+ 2a4:	|  |  |  |  |           |  |  |  |  |         00000813          	addi	x16,x0,0
+ 2a8:	|  |  |  |  |           |  |  |  |  |         00400793          	addi	x15,x0,4
+ 2ac:	|  |  |  |  |           |  |  |  |  |         00600713          	addi	x14,x0,6
+ 2b0:	|  |  |  |  |           |  |  |  |  |         00600693          	addi	x13,x0,6
+ 2b4:	|  |  |  |  |           |  |  |  |  |         00200613          	addi	x12,x0,2
+ 2b8:	|  |  |  |  |           |  |  |  |  |         7b4000ef          	jal	x1,a6c <lq_node>
+     ###     q = lq_node(q,  3,  3,  3,  6,    0);  // N3  tree: below it ids 3..3, parent N6
+ 2bc:	|  |  |  |  |           |  |  |  |  |         00000813          	addi	x16,x0,0
+ 2c0:	|  |  |  |  |           |  |  |  |  |         00600793          	addi	x15,x0,6
+ 2c4:	|  |  |  |  |           |  |  |  |  |         00300713          	addi	x14,x0,3
+ 2c8:	|  |  |  |  |           |  |  |  |  |         00300693          	addi	x13,x0,3
+ 2cc:	|  |  |  |  |           |  |  |  |  |         00300613          	addi	x12,x0,3
+ 2d0:	|  |  |  |  |           |  |  |  |  |         79c000ef          	jal	x1,a6c <lq_node>
+     ###     q = lq_node(q,  4,  5,  1, 14, 1300);  // N4  theta: route 1, offset 20
+ 2d4:	|  |  |  |  |           |  |  |  |  |         51400813          	addi	x16,x0,1300
+ 2d8:	|  |  |  |  |           |  |  |  |  |         00e00793          	addi	x15,x0,14
+ 2dc:	|  |  |  |  |           |  |  |  |  |         00100713          	addi	x14,x0,1
+ 2e0:	|  |  |  |  |           |  |  |  |  |         00500693          	addi	x13,x0,5
+ 2e4:	|  |  |  |  |           |  |  |  |  |         00400613          	addi	x12,x0,4
+ 2e8:	|  |  |  |  |           |  |  |  |  |         784000ef          	jal	x1,a6c <lq_node>
+     ###     q = lq_node(q,  5,  7,  0,  0, 1536);  // N5  theta: branch node N5, offset 0
+ 2ec:	|  |  |  |  |           |  |  |  |  |         60000813          	addi	x16,x0,1536
+ 2f0:	|  |  |  |  |           |  |  |  |  |         00000793          	addi	x15,x0,0
+ 2f4:	|  |  |  |  |           |  |  |  |  |         00000713          	addi	x14,x0,0
+ 2f8:	|  |  |  |  |           |  |  |  |  |         00700693          	addi	x13,x0,7
+ 2fc:	|  |  |  |  |           |  |  |  |  |         00500613          	addi	x12,x0,5
+ 300:	|  |  |  |  |           |  |  |  |  |         76c000ef          	jal	x1,a6c <lq_node>
+     ###     q = lq_node(q,  6,  2,  3,  1,    0);  // N6  tree: below it ids 2..3, parent N1
+ 304:	|  |  |  |  |           |  |  |  |  |         00000813          	addi	x16,x0,0
+ 308:	|  |  |  |  |           |  |  |  |  |         00100793          	addi	x15,x0,1
+ 30c:	|  |  |  |  |           |  |  |  |  |         00300713          	addi	x14,x0,3
+ 310:	|  |  |  |  |           |  |  |  |  |         00200693          	addi	x13,x0,2
+ 314:	|  |  |  |  |           |  |  |  |  |         00600613          	addi	x12,x0,6
+ 318:	|  |  |  |  |           |  |  |  |  |         754000ef          	jal	x1,a6c <lq_node>
+     ###     q = lq_node(q,  7,  8,  5, 15, 1547);  // N7  theta: route 2, offset 11
+ 31c:	|  |  |  |  |           |  |  |  |  |         60b00813          	addi	x16,x0,1547
+ 320:	|  |  |  |  |           |  |  |  |  |         00f00793          	addi	x15,x0,15
+ 324:	|  |  |  |  |           |  |  |  |  |         00500713          	addi	x14,x0,5
+ 328:	|  |  |  |  |           |  |  |  |  |         00800693          	addi	x13,x0,8
+ 32c:	|  |  |  |  |           |  |  |  |  |         00700613          	addi	x12,x0,7
+ 330:	|  |  |  |  |           |  |  |  |  |         73c000ef          	jal	x1,a6c <lq_node>
+     ###     q = lq_node(q,  8, 10,  5, 20, 1803);  // N8  theta: route 3, offset 11
+ 334:	|  |  |  |  |           |  |  |  |  |         70b00813          	addi	x16,x0,1803
+ 338:	|  |  |  |  |           |  |  |  |  |         01400793          	addi	x15,x0,20
+ 33c:	|  |  |  |  |           |  |  |  |  |         00500713          	addi	x14,x0,5
+ 340:	|  |  |  |  |           |  |  |  |  |         00a00693          	addi	x13,x0,10
+ 344:	|  |  |  |  |           |  |  |  |  |         00800613          	addi	x12,x0,8
+ 348:	|  |  |  |  |           |  |  |  |  |         724000ef          	jal	x1,a6c <lq_node>
+     ###     q = lq_node(q,  9, 12, 13, 11,    0);  // N9  tree: below it ids 12..13, parent N11
+ 34c:	|  |  |  |  |           |  |  |  |  |         00000813          	addi	x16,x0,0
+ 350:	|  |  |  |  |           |  |  |  |  |         00b00793          	addi	x15,x0,11
+ 354:	|  |  |  |  |           |  |  |  |  |         00d00713          	addi	x14,x0,13
+ 358:	|  |  |  |  |           |  |  |  |  |         00c00693          	addi	x13,x0,12
+ 35c:	|  |  |  |  |           |  |  |  |  |         00900613          	addi	x12,x0,9
+ 360:	|  |  |  |  |           |  |  |  |  |         70c000ef          	jal	x1,a6c <lq_node>
+     ###     q = lq_node(q, 10,  9,  9,  7,    0);  // N10 tree: below it ids 9..9, parent N7
+ 364:	|  |  |  |  |           |  |  |  |  |         00000813          	addi	x16,x0,0
+ 368:	|  |  |  |  |           |  |  |  |  |         00700793          	addi	x15,x0,7
+ 36c:	|  |  |  |  |           |  |  |  |  |         00900713          	addi	x14,x0,9
+ 370:	|  |  |  |  |           |  |  |  |  |         00900693          	addi	x13,x0,9
+ 374:	|  |  |  |  |           |  |  |  |  |         00a00613          	addi	x12,x0,10
+ 378:	|  |  |  |  |           |  |  |  |  |         6f4000ef          	jal	x1,a6c <lq_node>
+     ###     q = lq_node(q, 11, 11, 15,  8,    0);  // N11 tree: below it ids 11..15, parent N8
+ 37c:	|  |  |  |  |           |  |  |  |  |         00000813          	addi	x16,x0,0
+ 380:	|  |  |  |  |           |  |  |  |  |         00800793          	addi	x15,x0,8
+ 384:	|  |  |  |  |           |  |  |  |  |         00f00713          	addi	x14,x0,15
+ 388:	|  |  |  |  |           |  |  |  |  |         00b00693          	addi	x13,x0,11
+ 38c:	|  |  |  |  |           |  |  |  |  |         00b00613          	addi	x12,x0,11
+ 390:	|  |  |  |  |           |  |  |  |  |         6dc000ef          	jal	x1,a6c <lq_node>
+     ###     q = lq_node(q, 12, 13, 13,  9,    0);  // N12 tree: below it ids 13..13, parent N9
+ 394:	|  |  |  |  |           |  |  |  |  |         00000813          	addi	x16,x0,0
+ 398:	|  |  |  |  |           |  |  |  |  |         00900793          	addi	x15,x0,9
+ 39c:	|  |  |  |  |           |  |  |  |  |         00d00713          	addi	x14,x0,13
+ 3a0:	|  |  |  |  |           |  |  |  |  |         00d00693          	addi	x13,x0,13
+ 3a4:	|  |  |  |  |           |  |  |  |  |         00c00613          	addi	x12,x0,12
+ 3a8:	|  |  |  |  |           |  |  |  |  |         6c4000ef          	jal	x1,a6c <lq_node>
+     ###     q = lq_node(q, 13, 16, 30, 14, 1918);  // N13 theta: route 3, offset 126
+ 3ac:	|  |  |  |  |           |  |  |  |  |         77e00813          	addi	x16,x0,1918
+ 3b0:	|  |  |  |  |           |  |  |  |  |         00e00793          	addi	x15,x0,14
+ 3b4:	|  |  |  |  |           |  |  |  |  |         01e00713          	addi	x14,x0,30
+ 3b8:	|  |  |  |  |           |  |  |  |  |         01000693          	addi	x13,x0,16
+ 3bc:	|  |  |  |  |           |  |  |  |  |         00d00613          	addi	x12,x0,13
+ 3c0:	|  |  |  |  |           |  |  |  |  |         6ac000ef          	jal	x1,a6c <lq_node>
+     ###     q = lq_node(q, 14, 17,  0,  0, 1563);  // N14 theta: branch node N14, offset 27
+ 3c4:	|  |  |  |  |           |  |  |  |  |         61b00813          	addi	x16,x0,1563
+ 3c8:	|  |  |  |  |           |  |  |  |  |         00000793          	addi	x15,x0,0
+ 3cc:	|  |  |  |  |           |  |  |  |  |         00000713          	addi	x14,x0,0
+ 3d0:	|  |  |  |  |           |  |  |  |  |         01100693          	addi	x13,x0,17
+ 3d4:	|  |  |  |  |           |  |  |  |  |         00e00613          	addi	x12,x0,14
+ 3d8:	|  |  |  |  |           |  |  |  |  |         694000ef          	jal	x1,a6c <lq_node>
+     ###     q = lq_node(q, 15, 18,  7, 14, 1558);  // N15 theta: route 2, offset 22
+ 3dc:	|  |  |  |  |           |  |  |  |  |         61600813          	addi	x16,x0,1558
+ 3e0:	|  |  |  |  |           |  |  |  |  |         00e00793          	addi	x15,x0,14
+ 3e4:	|  |  |  |  |           |  |  |  |  |         00700713          	addi	x14,x0,7
+ 3e8:	|  |  |  |  |           |  |  |  |  |         01200693          	addi	x13,x0,18
+ 3ec:	|  |  |  |  |           |  |  |  |  |         00f00613          	addi	x12,x0,15
+ 3f0:	|  |  |  |  |           |  |  |  |  |         67c000ef          	jal	x1,a6c <lq_node>
+     ###     q = lq_node(q, 16, 27, 28, 23,    0);  // N16 tree: below it ids 27..28, parent N23
+ 3f4:	|  |  |  |  |           |  |  |  |  |         00000813          	addi	x16,x0,0
+ 3f8:	|  |  |  |  |           |  |  |  |  |         01700793          	addi	x15,x0,23
+ 3fc:	|  |  |  |  |           |  |  |  |  |         01c00713          	addi	x14,x0,28
+ 400:	|  |  |  |  |           |  |  |  |  |         01b00693          	addi	x13,x0,27
+ 404:	|  |  |  |  |           |  |  |  |  |         01000613          	addi	x12,x0,16
+ 408:	|  |  |  |  |           |  |  |  |  |         664000ef          	jal	x1,a6c <lq_node>
+     ###     q = lq_node(q, 17, 28, 28, 16,    0);  // N17 tree: below it ids 28..28, parent N16
+ 40c:	|  |  |  |  |           |  |  |  |  |         00000813          	addi	x16,x0,0
+ 410:	|  |  |  |  |           |  |  |  |  |         01000793          	addi	x15,x0,16
+ 414:	|  |  |  |  |           |  |  |  |  |         01c00713          	addi	x14,x0,28
+ 418:	|  |  |  |  |           |  |  |  |  |         01c00693          	addi	x13,x0,28
+ 41c:	|  |  |  |  |           |  |  |  |  |         01100613          	addi	x12,x0,17
+ 420:	|  |  |  |  |           |  |  |  |  |         64c000ef          	jal	x1,a6c <lq_node>
+     ###     q = lq_node(q, 18, 15, 15, 19,    0);  // N18 tree: below it ids 15..15, parent N19
+ 424:	|  |  |  |  |           |  |  |  |  |         00000813          	addi	x16,x0,0
+ 428:	|  |  |  |  |           |  |  |  |  |         01300793          	addi	x15,x0,19
+ 42c:	|  |  |  |  |           |  |  |  |  |         00f00713          	addi	x14,x0,15
+ 430:	|  |  |  |  |           |  |  |  |  |         00f00693          	addi	x13,x0,15
+ 434:	|  |  |  |  |           |  |  |  |  |         01200613          	addi	x12,x0,18
+ 438:	|  |  |  |  |           |  |  |  |  |         634000ef          	jal	x1,a6c <lq_node>
+     ###     q = lq_node(q, 19, 14, 15, 11,    0);  // N19 tree: below it ids 14..15, parent N11
+ 43c:	|  |  |  |  |           |  |  |  |  |         00000813          	addi	x16,x0,0
+ 440:	|  |  |  |  |           |  |  |  |  |         00b00793          	addi	x15,x0,11
+ 444:	|  |  |  |  |           |  |  |  |  |         00f00713          	addi	x14,x0,15
+ 448:	|  |  |  |  |           |  |  |  |  |         00e00693          	addi	x13,x0,14
+ 44c:	|  |  |  |  |           |  |  |  |  |         01300613          	addi	x12,x0,19
+ 450:	|  |  |  |  |           |  |  |  |  |         61c000ef          	jal	x1,a6c <lq_node>
+     ###     q = lq_node(q, 20, 19,  8, 27, 1814);  // N20 theta: route 3, offset 22
+ 454:	|  |  |  |  |           |  |  |  |  |         71600813          	addi	x16,x0,1814
+ 458:	|  |  |  |  |           |  |  |  |  |         01b00793          	addi	x15,x0,27
+ 45c:	|  |  |  |  |           |  |  |  |  |         00800713          	addi	x14,x0,8
+ 460:	|  |  |  |  |           |  |  |  |  |         01300693          	addi	x13,x0,19
+ 464:	|  |  |  |  |           |  |  |  |  |         01400613          	addi	x12,x0,20
+ 468:	|  |  |  |  |           |  |  |  |  |         604000ef          	jal	x1,a6c <lq_node>
+     ###     q = lq_node(q, 21, 20, 20, 20,    0);  // N21 tree: below it ids 20..20, parent N20
+ 46c:	|  |  |  |  |           |  |  |  |  |         00000813          	addi	x16,x0,0
+ 470:	|  |  |  |  |           |  |  |  |  |         01400793          	addi	x15,x0,20
+ 474:	|  |  |  |  |           |  |  |  |  |         01400713          	addi	x14,x0,20
+ 478:	|  |  |  |  |           |  |  |  |  |         01400693          	addi	x13,x0,20
+ 47c:	|  |  |  |  |           |  |  |  |  |         01500613          	addi	x12,x0,21
+ 480:	|  |  |  |  |           |  |  |  |  |         5ec000ef          	jal	x1,a6c <lq_node>
+     ###     q = lq_node(q, 22, 30, 30, 25,    0);  // N22 tree: below it ids 30..30, parent N25
+ 484:	|  |  |  |  |           |  |  |  |  |         00000813          	addi	x16,x0,0
+ 488:	|  |  |  |  |           |  |  |  |  |         01900793          	addi	x15,x0,25
+ 48c:	|  |  |  |  |           |  |  |  |  |         01e00713          	addi	x14,x0,30
+ 490:	|  |  |  |  |           |  |  |  |  |         01e00693          	addi	x13,x0,30
+ 494:	|  |  |  |  |           |  |  |  |  |         01600613          	addi	x12,x0,22
+ 498:	|  |  |  |  |           |  |  |  |  |         5d4000ef          	jal	x1,a6c <lq_node>
+     ###     q = lq_node(q, 23, 26, 30, 26,    0);  // N23 tree: below it ids 26..30, parent N26
+ 49c:	|  |  |  |  |           |  |  |  |  |         00000813          	addi	x16,x0,0
+ 4a0:	|  |  |  |  |           |  |  |  |  |         01a00793          	addi	x15,x0,26
+ 4a4:	|  |  |  |  |           |  |  |  |  |         01e00713          	addi	x14,x0,30
+ 4a8:	|  |  |  |  |           |  |  |  |  |         01a00693          	addi	x13,x0,26
+ 4ac:	|  |  |  |  |           |  |  |  |  |         01700613          	addi	x12,x0,23
+ 4b0:	|  |  |  |  |           |  |  |  |  |         5bc000ef          	jal	x1,a6c <lq_node>
+     ###     q = lq_node(q, 24, 22, 22, 27,    0);  // N24 tree: below it ids 22..22, parent N27
+ 4b4:	|  |  |  |  |           |  |  |  |  |         00000813          	addi	x16,x0,0
+ 4b8:	|  |  |  |  |           |  |  |  |  |         01b00793          	addi	x15,x0,27
+ 4bc:	|  |  |  |  |           |  |  |  |  |         01600713          	addi	x14,x0,22
+ 4c0:	|  |  |  |  |           |  |  |  |  |         01600693          	addi	x13,x0,22
+ 4c4:	|  |  |  |  |           |  |  |  |  |         01800613          	addi	x12,x0,24
+ 4c8:	|  |  |  |  |           |  |  |  |  |         5a4000ef          	jal	x1,a6c <lq_node>
+     ###     q = lq_node(q, 25, 29, 30, 23,    0);  // N25 tree: below it ids 29..30, parent N23
+ 4cc:	|  |  |  |  |           |  |  |  |  |         00000813          	addi	x16,x0,0
+ 4d0:	|  |  |  |  |           |  |  |  |  |         01700793          	addi	x15,x0,23
+ 4d4:	|  |  |  |  |           |  |  |  |  |         01e00713          	addi	x14,x0,30
+ 4d8:	|  |  |  |  |           |  |  |  |  |         01d00693          	addi	x13,x0,29
+ 4dc:	|  |  |  |  |           |  |  |  |  |         01900613          	addi	x12,x0,25
+ 4e0:	|  |  |  |  |           |  |  |  |  |         58c000ef          	jal	x1,a6c <lq_node>
+     ###     q = lq_node(q, 26, 25, 30, 29,    0);  // N26 tree: below it ids 25..30, parent N29
+ 4e4:	|  |  |  |  |           |  |  |  |  |         00000813          	addi	x16,x0,0
+ 4e8:	|  |  |  |  |           |  |  |  |  |         01d00793          	addi	x15,x0,29
+ 4ec:	|  |  |  |  |           |  |  |  |  |         01e00713          	addi	x14,x0,30
+ 4f0:	|  |  |  |  |           |  |  |  |  |         01900693          	addi	x13,x0,25
+ 4f4:	|  |  |  |  |           |  |  |  |  |         01a00613          	addi	x12,x0,26
+ 4f8:	|  |  |  |  |           |  |  |  |  |         574000ef          	jal	x1,a6c <lq_node>
+     ###     q = lq_node(q, 27, 21, 20, 29, 1825);  // N27 theta: route 3, offset 33
+ 4fc:	|  |  |  |  |           |  |  |  |  |         72100813          	addi	x16,x0,1825
+ 500:	|  |  |  |  |           |  |  |  |  |         01d00793          	addi	x15,x0,29
+ 504:	|  |  |  |  |           |  |  |  |  |         01400713          	addi	x14,x0,20
+ 508:	|  |  |  |  |           |  |  |  |  |         01500693          	addi	x13,x0,21
+ 50c:	|  |  |  |  |           |  |  |  |  |         01b00613          	addi	x12,x0,27
+ 510:	|  |  |  |  |           |  |  |  |  |         55c000ef          	jal	x1,a6c <lq_node>
+     ###     q = lq_node(q, 28, 23, 32, 31, 1856);  // N28 theta: route 3, offset 64
+ 514:	|  |  |  |  |           |  |  |  |  |         74000813          	addi	x16,x0,1856
+ 518:	|  |  |  |  |           |  |  |  |  |         01f00793          	addi	x15,x0,31
+ 51c:	|  |  |  |  |           |  |  |  |  |         02000713          	addi	x14,x0,32
+ 520:	|  |  |  |  |           |  |  |  |  |         01700693          	addi	x13,x0,23
+ 524:	|  |  |  |  |           |  |  |  |  |         01c00613          	addi	x12,x0,28
+ 528:	|  |  |  |  |           |  |  |  |  |         544000ef          	jal	x1,a6c <lq_node>
+     ###     q = lq_node(q, 29, 24, 27, 32, 1836);  // N29 theta: route 3, offset 44
+ 52c:	|  |  |  |  |           |  |  |  |  |         72c00813          	addi	x16,x0,1836
+ 530:	|  |  |  |  |           |  |  |  |  |         02000793          	addi	x15,x0,32
+ 534:	|  |  |  |  |           |  |  |  |  |         01b00713          	addi	x14,x0,27
+ 538:	|  |  |  |  |           |  |  |  |  |         01800693          	addi	x13,x0,24
+ 53c:	|  |  |  |  |           |  |  |  |  |         01d00613          	addi	x12,x0,29
+ 540:	|  |  |  |  |           |  |  |  |  |         52c000ef          	jal	x1,a6c <lq_node>
+     ###     q = lq_node(q, 30, 31, 35, 13, 1899);  // N30 theta: route 3, offset 107
+ 544:	|  |  |  |  |           |  |  |  |  |         76b00813          	addi	x16,x0,1899
+ 548:	|  |  |  |  |           |  |  |  |  |         00d00793          	addi	x15,x0,13
+ 54c:	|  |  |  |  |           |  |  |  |  |         02300713          	addi	x14,x0,35
+ 550:	|  |  |  |  |           |  |  |  |  |         01f00693          	addi	x13,x0,31
+ 554:	|  |  |  |  |           |  |  |  |  |         01e00613          	addi	x12,x0,30
+ 558:	|  |  |  |  |           |  |  |  |  |         514000ef          	jal	x1,a6c <lq_node>
+     ###     q = lq_node(q, 31, 33, 28, 35, 1861);  // N31 theta: route 3, offset 69
+ 55c:	|  |  |  |  |           |  |  |  |  |         74500813          	addi	x16,x0,1861
+ 560:	|  |  |  |  |           |  |  |  |  |         02300793          	addi	x15,x0,35
+ 564:	|  |  |  |  |           |  |  |  |  |         01c00713          	addi	x14,x0,28
+ 568:	|  |  |  |  |           |  |  |  |  |         02100693          	addi	x13,x0,33
+ 56c:	|  |  |  |  |           |  |  |  |  |         01f00613          	addi	x12,x0,31
+ 570:	|  |  |  |  |           |  |  |  |  |         4fc000ef          	jal	x1,a6c <lq_node>
+     ###     q = lq_node(q, 32, 35, 29, 28, 1841);  // N32 theta: route 3, offset 49
+ 574:	|  |  |  |  |           |  |  |  |  |         73100813          	addi	x16,x0,1841
+ 578:	|  |  |  |  |           |  |  |  |  |         01c00793          	addi	x15,x0,28
+ 57c:	|  |  |  |  |           |  |  |  |  |         01d00713          	addi	x14,x0,29
+ 580:	|  |  |  |  |           |  |  |  |  |         02300693          	addi	x13,x0,35
+ 584:	|  |  |  |  |           |  |  |  |  |         02000613          	addi	x12,x0,32
+ 588:	|  |  |  |  |           |  |  |  |  |         4e4000ef          	jal	x1,a6c <lq_node>
+     ###     q = lq_node(q, 33, 32, 32, 30,    0);  // N33 tree: below it ids 32..32, parent N30
+ 58c:	|  |  |  |  |           |  |  |  |  |         00000813          	addi	x16,x0,0
+ 590:	|  |  |  |  |           |  |  |  |  |         01e00793          	addi	x15,x0,30
+ 594:	|  |  |  |  |           |  |  |  |  |         02000713          	addi	x14,x0,32
+ 598:	|  |  |  |  |           |  |  |  |  |         02000693          	addi	x13,x0,32
+ 59c:	|  |  |  |  |           |  |  |  |  |         02100613          	addi	x12,x0,33
+ 5a0:	|  |  |  |  |           |  |  |  |  |         4cc000ef          	jal	x1,a6c <lq_node>
+     ###     q = lq_node(q, 34, 34, 34, 31,    0);  // N34 tree: below it ids 34..34, parent N31
+ 5a4:	|  |  |  |  |           |  |  |  |  |         00000813          	addi	x16,x0,0
+ 5a8:	|  |  |  |  |           |  |  |  |  |         01f00793          	addi	x15,x0,31
+ 5ac:	|  |  |  |  |           |  |  |  |  |         02200713          	addi	x14,x0,34
+ 5b0:	|  |  |  |  |           |  |  |  |  |         02200693          	addi	x13,x0,34
+ 5b4:	|  |  |  |  |           |  |  |  |  |         02200613          	addi	x12,x0,34
+ 5b8:	|  |  |  |  |           |  |  |  |  |         4b4000ef          	jal	x1,a6c <lq_node>
+     ###     q = lq_node(q, 35, 36, 31, 30, 1880);  // N35 theta: route 3, offset 88
+ 5bc:	|  |  |  |  |           |  |  |  |  |         75800813          	addi	x16,x0,1880
+ 5c0:	|  |  |  |  |           |  |  |  |  |         01e00793          	addi	x15,x0,30
+ 5c4:	|  |  |  |  |           |  |  |  |  |         01f00713          	addi	x14,x0,31
+ 5c8:	|  |  |  |  |           |  |  |  |  |         02400693          	addi	x13,x0,36
+ 5cc:	|  |  |  |  |           |  |  |  |  |         02300613          	addi	x12,x0,35
+ 5d0:	|  |  |  |  |           |  |  |  |  |         49c000ef          	jal	x1,a6c <lq_node>
+     ###     q = lq_node(q, 36,  4,  4,  1,    0);  // N36 tree: below it ids 4..4, parent N1
+ 5d4:	|  |  |  |  |           |  |  |  |  |         00100793          	addi	x15,x0,1
+ 5d8:	|  |  |  |  |           |  |  |  |  |         00000813          	addi	x16,x0,0
+ 5dc:	|  |  |  |  |           |  |  |  |  |         00400713          	addi	x14,x0,4
+ 5e0:	|  |  |  |  |           |  |  |  |  |         00400693          	addi	x13,x0,4
+ 5e4:	|  |  |  |  |           |  |  |  |  |         02400613          	addi	x12,x0,36
+ 5e8:	|  |  |  |  |           |  |  |  |  |         484000ef          	jal	x1,a6c <lq_node>
+     ###         if ((k >> 1) == 0) {
+ 5ec:	|  |  |  |  |           |  |  |  |  |         0015d793          	srli	x15,x11,0x1
+ 5f0:	|  |  |  |  +-----------|--|--|--|--|-------- c8078ee3          	beq	x15,x0,28c <__ram_size+0x8c>
+     ###         if ((k >> 6) == 0) {
+ 5f4:	|  |  |  |  |           |  |  |  |  |         0065d793          	srli	x15,x11,0x6
+ 5f8:	|  |  |  |  |  /--------|--|--|--|--|-------- 20078263          	beq	x15,x0,7fc <__ram_size+0x5fc>
+     ###         } else if (LQ_ID(k) == LQ_GID(x)) {
+ 5fc:	|  |  |  |  |  |        |  |  |  |  |         00a55713          	srli	x14,x10,0xa
+ 600:	|  |  |  |  |  |        |  |  |  |  |         00e5c6b3          	xor	x13,x11,x14
+ 604:	|  |  |  |  |  |        |  |  |  |  |         03f6f693          	andi	x13,x13,63
+ 608:	|  |  |  |  |  |  /-----|--|--|--|--|-------- 1e068e63          	beq	x13,x0,804 <__ram_size+0x604>
+     ###         } else if (!LQ_THETA(k)) {
+ 60c:	|  |  |  |  |  |  |     |  |  |  |  |         01c5d693          	srli	x13,x11,0x1c
+ 610:	|  |  |  |  |  |  |     |  |  |  |  |  /----- 04069263          	bne	x13,x0,654 <__ram_size+0x454>
+     ###             if (LQ_ID(k) <= LQ_GID(x) && LQ_GID(x) <= LQ_END(k)) {
+ 614:	|  |  |  |  |  |  |     |  |  |  |  |  |      03f77713          	andi	x14,x14,63
+ 618:	|  |  |  |  |  |  |     |  |  |  |  |  |      03f5f693          	andi	x13,x11,63
+ 61c:	|  |  |  |  |  |  |  /--|--|--|--|--|--|----- 1cd76063          	bltu	x14,x13,7dc <__ram_size+0x5dc>
+ 620:	|  |  |  |  |  |  |  |  |  |  |  |  |  |      03f7f793          	andi	x15,x15,63
+ 624:	|  |  |  |  |  |  |  +--|--|--|--|--|--|----- 1ae7ec63          	bltu	x15,x14,7dc <__ram_size+0x5dc>
+     ###             q = LQ_Q(x, LQ_WHICH);          // the goal hangs below this theta node
+ 628:	|  |  |  |  |  |  |  |  |  |  |  |  |  |  /-> fff00593          	addi	x11,x0,-1
+     ###             continue;
+ 62c:	|  |  |  |  +--|--|--|--|--|--|--|--|--|--|-- c61ff06f          	jal	x0,28c <__ram_size+0x8c>
+     ###         LQ_DECRYPT(lq_hi, lq_lo);
+ 630:	|  |  \--|--|--|--|--|--|--|--|--|--|--|--|-> 00c8d633          	srl	x12,x17,x12
+ 634:	|  |     \--|--|--|--|--|--|--|--|--|--|--|-- acdff06f          	jal	x0,100 <__stack_size+0x48>
+ 638:	|  |        |  |  |  |  \--|--|--|--|--|--|-> 00aed5b3          	srl	x11,x29,x10
+ 63c:	|  |        |  |  |  |     \--|--|--|--|--|-- b5dff06f          	jal	x0,198 <__stack_size+0xe0>
+ 640:	|  |        |  |  |  |        \--|--|--|--|-> 00ced633          	srl	x12,x29,x12
+ 644:	|  |        |  |  |  |           \--|--|--|-- b9dff06f          	jal	x0,1e0 <__stack_size+0x128>
+     ###         }
+     ###         // done flag 1: the inputs are left as they are
+     ###     }
+     ###     else {
+     ###         end_point = NEXT_NODE;                      // the inputs are left as they are
+ 648:	\--|--------|--|--|--|--------------|--|--|-> 00c7c783          	lbu	x15,12(x15)
+ 64c:	   |        |  |  |  |              |  |  |   0ff7f793          	andi	x15,x15,255
+ 650:	   |        |  |  |  |              \--|--|-- c09ff06f          	jal	x0,258 <__ram_size+0x58>
+     ###         } else if (LQ_ID(k) == LQ_AID(x)) {
+ 654:	   |        |  |  |  |                 \--|-> 01055713          	srli	x14,x10,0x10
+ 658:	   |        |  |  |  |                    |   00b74733          	xor	x14,x14,x11
+ 65c:	   |        |  |  |  |                    |   03f77713          	andi	x14,x14,63
+ 660:	   |        |  |  |  |                    \-- fc0704e3          	beq	x14,x0,628 <__ram_size+0x428>
+     ###     uint32_t i = LQ_ROUTE(k);
+ 664:	   |        |  |  |  |                        01a5df13          	srli	x30,x11,0x1a
+     ###     uint32_t t = LQ_OFF(k);
+ 668:	   |        |  |  |  |                        0125d613          	srli	x12,x11,0x12
+     ###     uint32_t li = LQ_LEN(i), lj = LQ_LEN(j);
+ 66c:	   |        |  |  |  |                        002f7693          	andi	x13,x30,2
+     ###             nxt = lq_theta_step(k, LQ_AROUTE(x), LQ_AOFF(x));
+ 670:	   |        |  |  |  |                        01655e93          	srli	x29,x10,0x16
+ 674:	   |        |  |  |  |                        01855893          	srli	x17,x10,0x18
+     ###     uint32_t t = LQ_OFF(k);
+ 678:	   |        |  |  |  |                        0ff67613          	andi	x12,x12,255
+     ###     uint32_t li = LQ_LEN(i), lj = LQ_LEN(j);
+ 67c:	   |        |  |  |  |                        001f7713          	andi	x14,x30,1
+ 680:	   |        |  |  |  |                        02300313          	addi	x6,x0,35
+ 684:	   |        |  |  |  |                    /-- 00068863          	beq	x13,x0,694 <__ram_size+0x494>
+ 688:	   |        |  |  |  |                    |   08300313          	addi	x6,x0,131
+ 68c:	   |        |  |  |  |                    +-- 00071463          	bne	x14,x0,694 <__ram_size+0x494>
+ 690:	   |        |  |  |  |                    |   01b00313          	addi	x6,x0,27
+ 694:	   |        |  |  |  |                    \-> 002eff93          	andi	x31,x29,2
+ 698:	   |        |  |  |  |                        001efe13          	andi	x28,x29,1
+ 69c:	   |        |  |  |  |                    /-- 000f8c63          	beq	x31,x0,6b4 <__ram_size+0x4b4>
+ 6a0:	   |  /-----|--|--|--|--------------------|-- 3a0e1e63          	bne	x28,x0,a5c <Path_Planner_Dec.c.19e7d14f+0x190>
+     ###     uint32_t mi = LQ_OTHER(i), mj = LQ_OTHER(j);
+ 6a4:	   |  |     |  |  |  |        /-----------|-- 08071463          	bne	x14,x0,72c <__ram_size+0x52c>
+     ###     uint32_t li = LQ_LEN(i), lj = LQ_LEN(j);
+ 6a8:	   |  |     |  |  |  |        |           |   01b00693          	addi	x13,x0,27
+     ###     uint32_t mi = LQ_OTHER(i), mj = LQ_OTHER(j);
+ 6ac:	   |  |     |  |  |  |        |           |   02300813          	addi	x16,x0,35
+ 6b0:	   |  |     |  |  |  |        |  /--------|-- 0840006f          	jal	x0,734 <__ram_size+0x534>
+ 6b4:	   |  |     |  |  |  |        |  |        \-> 02300813          	addi	x16,x0,35
+ 6b8:	   |  |     |  |  |  |        |  |        /-- 00070463          	beq	x14,x0,6c0 <__ram_size+0x4c0>
+ 6bc:	   |  |     |  |  |  |        |  |        |   01b00813          	addi	x16,x0,27
+ 6c0:	   |  |     |  |  |  |        |  |        \-> 02300693          	addi	x13,x0,35
+ 6c4:	   |  |     |  |  |  |        |  +----------- 060e0863          	beq	x28,x0,734 <__ram_size+0x534>
+ 6c8:	   |  |  /--|--|--|--|--------|--|----------> 01b00713          	addi	x14,x0,27
+     ###     if (LQ_PREV(k) == 0) {
+ 6cc:	   |  |  |  |  |  |  |        |  |     /----> 03f7f793          	andi	x15,x15,63
+ 6d0:	   |  |  |  |  |  |  |        |  |     |      411686b3          	sub	x13,x13,x17
+ 6d4:	   |  |  |  |  |  |  |     /--|--|-----|----- 0a079063          	bne	x15,x0,774 <__ram_size+0x574>
+     ###         if (t == 0) {                       // N5
+ 6d8:	   |  |  |  |  |  |  |     |  |  |  /--|----- 06061863          	bne	x12,x0,748 <__ram_size+0x548>
+     ###             return (ty <= mj + lj - ty) ? LQ_FIRST(j) : LQ_OTHER_FIRST(j);
+ 6dc:	   |  |  |  |  |  |  |     |  |  |  |  |      00d70733          	add	x14,x14,x13
+ 6e0:	   |  |  |  |  |  |  |     |  |  |  |  |      00100793          	addi	x15,x0,1
+ 6e4:	   |  |  |  |  |  |  |     |  |  |  |  |  /-- 05176c63          	bltu	x14,x17,73c <__ram_size+0x53c>
+ 6e8:	   |  |  |  |  |  |  |  /--|--|--|--|--|--|-- 000f8463          	beq	x31,x0,6f0 <__ram_size+0x4f0>
+ 6ec:	   |  |  |  |  |  |  |  |  |  |  |  |  |  |   007e0793          	addi	x15,x28,7
+     ###         path[LQ_N(x)] = (uint8_t)nxt;
+ 6f0:	   |  |  |  |  |  |  |  >--|--|--|--|--|--|-> 00f57713          	andi	x14,x10,15
+ 6f4:	   |  |  |  |  |  |  |  |  |  |  |  |  |  |   03010693          	addi	x13,x2,48
+ 6f8:	   |  |  |  |  |  |  |  |  |  |  |  |  |  |   00e68733          	add	x14,x13,x14
+ 6fc:	   |  |  |  |  |  |  |  |  |  |  |  |  |  |   fcf70c23          	sb	x15,-40(x14)
+     ###         q = LQ_Q(x + ((nxt - LQ_C(x)) << 4) + 1, 0);
+ 700:	   |  |  |  |  |  |  |  |  |  |  |  |  |  |   00455713          	srli	x14,x10,0x4
+ 704:	   |  |  |  |  |  |  |  |  |  |  |  |  |  |   03f77713          	andi	x14,x14,63
+ 708:	   |  |  |  |  |  |  |  |  |  |  |  |  |  |   40e787b3          	sub	x15,x15,x14
+ 70c:	   |  |  |  |  |  |  |  |  |  |  |  |  |  |   00479793          	slli	x15,x15,0x4
+ 710:	   |  |  |  |  |  |  |  |  |  |  |  |  |  |   00150513          	addi	x10,x10,1
+ 714:	   |  |  |  |  |  |  |  |  |  |  |  |  |  |   00a78533          	add	x10,x15,x10
+ 718:	   |  |  |  |  |  |  |  |  |  |  |  |  |  |   00000593          	addi	x11,x0,0
+ 71c:	   |  |  |  \--|--|--|--|--|--|--|--|--|--|-- b71ff06f          	jal	x0,28c <__ram_size+0x8c>
+     ###     uint32_t mi = LQ_OTHER(i), mj = LQ_OTHER(j);
+ 720:	   |  |  |  /--|--|--|--|--|--|--|--|--|--|-> 01b00813          	addi	x16,x0,27
+     ###     uint32_t li = LQ_LEN(i), lj = LQ_LEN(j);
+ 724:	   |  |  |  |  |  |  |  |  |  |  |  |  |  |   08300693          	addi	x13,x0,131
+ 728:	   |  |  +--|--|--|--|--|--|--|--|--|--|--|-- fa1ff06f          	jal	x0,6c8 <__ram_size+0x4c8>
+     ###     uint32_t mi = LQ_OTHER(i), mj = LQ_OTHER(j);
+ 72c:	   |  |  |  |  |  |  |  |  |  \--|--|--|--|-> 01b00813          	addi	x16,x0,27
+     ###     uint32_t li = LQ_LEN(i), lj = LQ_LEN(j);
+ 730:	   |  |  |  |  |  |  |  |  |     |  |  |  |   01b00693          	addi	x13,x0,27
+     ###     uint32_t mi = LQ_OTHER(i), mj = LQ_OTHER(j);
+ 734:	   |  |  |  |  |  |  |  |  |     \--|--|--|-> 02300713          	addi	x14,x0,35
+ 738:	   |  |  |  |  |  |  |  |  |        |  \--|-- f95ff06f          	jal	x0,6cc <__ram_size+0x4cc>
+     ###             return (ty <= mj + lj - ty) ? LQ_FIRST(j) : LQ_OTHER_FIRST(j);
+ 73c:	   |  |  |  |  |  |  |  +--|--------|-----\-X fa0e0ae3          	beq	x28,x0,6f0 <__ram_size+0x4f0>
+ 740:	   |  |  |  |  |  |  |  |  |        |         00700793          	addi	x15,x0,7
+ 744:	   |  |  |  |  |  |  |  +--|--------|-------- fadff06f          	jal	x0,6f0 <__ram_size+0x4f0>
+     ###         return (lj - ty <= mj + ty) ? LQ_LAST(j) : LQ_OTHER_LAST(j);    // N14
+ 748:	   |  |  |  |  |  |  |  |  |        \-------> 00e88733          	add	x14,x17,x14
+ 74c:	   |  |  |  |  |  |  |  |  |                  00400793          	addi	x15,x0,4
+ 750:	   |  |  |  |  |  |  |  |  |              /-- 00d76c63          	bltu	x14,x13,768 <__ram_size+0x568>
+ 754:	   |  |  |  |  |  |  |  +--|--------------|-- f80f8ee3          	beq	x31,x0,6f0 <__ram_size+0x4f0>
+ 758:	   |  |  |  |  |  |  |  |  |              |   00f00793          	addi	x15,x0,15
+ 75c:	   |  |  |  |  |  |  |  +--|--------------|-- f80e0ae3          	beq	x28,x0,6f0 <__ram_size+0x4f0>
+ 760:	   |  |  |  |  |  |  |  |  |              |   00d00793          	addi	x15,x0,13
+ 764:	   |  |  |  |  |  |  |  +--|--------------|-- f8dff06f          	jal	x0,6f0 <__ram_size+0x4f0>
+ 768:	   |  |  |  |  |  |  |  +--|--------------\-X f80e04e3          	beq	x28,x0,6f0 <__ram_size+0x4f0>
+ 76c:	   |  |  |  |  |  |  |  |  |                  00f00793          	addi	x15,x0,15
+ 770:	   |  |  |  |  |  |  |  +--|----------------- f81ff06f          	jal	x0,6f0 <__ram_size+0x4f0>
+     ###     d5c  = (t <= li - t + mi) ? t : li - t + mi;
+ 774:	   |  |  |  |  |  |  |  |  \----------------> 40c30333          	sub	x6,x6,x12
+     ###     d5a  = (ty <= lj - ty + mj) ? ty : lj - ty + mj;
+ 778:	   |  |  |  |  |  |  |  |                     00d70e33          	add	x28,x14,x13
+     ###     d5c  = (t <= li - t + mi) ? t : li - t + mi;
+ 77c:	   |  |  |  |  |  |  |  |                     01030fb3          	add	x31,x6,x16
+     ###     d14c = (li - t <= t + mi) ? li - t : t + mi;
+ 780:	   |  |  |  |  |  |  |  |                     01060833          	add	x16,x12,x16
+     ###     d5a  = (ty <= lj - ty + mj) ? ty : lj - ty + mj;
+ 784:	   |  |  |  |  |  |  |  |                 /-- 01c8f463          	bgeu	x17,x28,78c <__ram_size+0x58c>
+ 788:	   |  |  |  |  |  |  |  |                 |   00088e13          	addi	x28,x17,0
+     ###     d5c  = (t <= li - t + mi) ? t : li - t + mi;
+ 78c:	   |  |  |  |  |  |  |  |                 \-> 00060293          	addi	x5,x12,0
+ 790:	   |  |  |  |  |  |  |  |                 /-- 00cff463          	bgeu	x31,x12,798 <__ram_size+0x598>
+ 794:	   |  |  |  |  |  |  |  |                 |   000f8293          	addi	x5,x31,0
+     ###     d14a = (lj - ty <= ty + mj) ? lj - ty : ty + mj;
+ 798:	   |  |  |  |  |  |  |  |                 \-> 00e88733          	add	x14,x17,x14
+     ###     via5  = d5c + d5a;
+ 79c:	   |  |  |  |  |  |  |  |                     005e0e33          	add	x28,x28,x5
+     ###     d14a = (lj - ty <= ty + mj) ? lj - ty : ty + mj;
+ 7a0:	   |  |  |  |  |  |  |  |                 /-- 00e6f463          	bgeu	x13,x14,7a8 <__ram_size+0x5a8>
+ 7a4:	   |  |  |  |  |  |  |  |                 |   00068713          	addi	x14,x13,0 # 293a0000 <__global_pointer$+0x2739f800>
+     ###     d14c = (li - t <= t + mi) ? li - t : t + mi;
+ 7a8:	   |  |  |  |  |  |  |  |                 \-> 00030693          	addi	x13,x6,0
+ 7ac:	   |  |  |  |  |  |  |  |                 /-- 00687463          	bgeu	x16,x6,7b4 <__ram_size+0x5b4>
+ 7b0:	   |  |  |  |  |  |  |  |                 |   00080693          	addi	x13,x16,0
+     ###             nxt = lq_theta_step(k, LQ_AROUTE(x), LQ_AOFF(x));
+ 7b4:	   |  |  |  |  |  |  |  |                 \-> 003efe93          	andi	x29,x29,3
+     ###     uint32_t i = LQ_ROUTE(k);
+ 7b8:	   |  |  |  |  |  |  |  |                     003f7f13          	andi	x30,x30,3
+     ###     via14 = d14c + d14a;
+ 7bc:	   |  |  |  |  |  |  |  |                     00d70733          	add	x14,x14,x13
+     ###     if (i == j) {
+ 7c0:	   |  |  |  |  |  |  |  |              /----- 03ee9463          	bne	x29,x30,7e8 <__ram_size+0x5e8>
+     ###         direct = (t < ty) ? ty - t : t - ty;
+ 7c4:	   |  |  |  |  |  |  |  |              |      411606b3          	sub	x13,x12,x17
+ 7c8:	   |  |  |  |  |  |  |  |              |  /-- 01167463          	bgeu	x12,x17,7d0 <__ram_size+0x5d0>
+ 7cc:	   |  |  |  |  |  |  |  |              |  |   40c886b3          	sub	x13,x17,x12
+     ###         if (direct <= via5 && direct <= via14) {
+ 7d0:	   |  |  |  |  |  |  |  |              +--\-X 00de6c63          	bltu	x28,x13,7e8 <__ram_size+0x5e8>
+ 7d4:	   |  |  |  |  |  |  |  |              +----- 00d76a63          	bltu	x14,x13,7e8 <__ram_size+0x5e8>
+     ###             return (t < ty) ? LQ_NEXT(k) : LQ_PREV(k);  // along the route
+ 7d8:	   |  |  |  |  |  |  |  +--------------|----- f1167ce3          	bgeu	x12,x17,6f0 <__ram_size+0x4f0>
+     ###     return (d14c == li - t) ? LQ_NEXT(k) : LQ_PREV(k);  // towards N14
+ 7dc:	   |  |  |  |  |  |  >--|--------------|----> 00c5d593          	srli	x11,x11,0xc
+ 7e0:	   |  |  |  |  |  |  |  |              |      03f5f793          	andi	x15,x11,63
+ 7e4:	   |  |  |  |  |  |  |  +--------------|----- f0dff06f          	jal	x0,6f0 <__ram_size+0x4f0>
+     ###     if (via5 <= via14) {
+ 7e8:	   |  |  |  |  |  |  |  |              \--/-X 01c76663          	bltu	x14,x28,7f4 <__ram_size+0x5f4>
+     ###         return (d5c == t) ? LQ_PREV(k) : LQ_NEXT(k);    // towards N5
+ 7ec:	   |  |  |  |  |  |  |  +-----------------|-- f0cff2e3          	bgeu	x31,x12,6f0 <__ram_size+0x4f0>
+ 7f0:	   |  |  |  |  |  |  +--|-----------------|-- fedff06f          	jal	x0,7dc <__ram_size+0x5dc>
+     ###     return (d14c == li - t) ? LQ_NEXT(k) : LQ_PREV(k);  // towards N14
+ 7f4:	   |  |  |  |  |  |  |  +-----------------\-X ee686ee3          	bltu	x16,x6,6f0 <__ram_size+0x4f0>
+ 7f8:	   |  |  |  |  |  |  \--|-------------------- fe5ff06f          	jal	x0,7dc <__ram_size+0x5dc>
+     ###         if ((k >> 6) == 0) {
+ 7fc:	   |  |  |  |  \--|-----|-------------------> 00058793          	addi	x15,x11,0
+ 800:	   |  |  |  |     |     \-------------------- ef1ff06f          	jal	x0,6f0 <__ram_size+0x4f0>
+     ###     return (uint8_t)LQ_N(x);
+ 804:	   |  |  |  |     \-------------------------> 00f57513          	andi	x10,x10,15
+     ###     // the path from start_point to end_point
+     ###     idx = lq_plan(path_planned, start_point, end_point);
+     ### 
+     ###     // the message: decrypt again (see LQ_DECRYPT) instead of keeping the decrypted
+     ###     // code during the planning
+     ###     if (is_encrypted) {
+ 808:	   \--|--|--|-----/-------------------------X 1e040c63          	beq	x8,x0,a00 <Path_Planner_Dec.c.19e7d14f+0x134>
+     ###         lq_hi = ENCRYPTED_HI;
+ 80c:	      |  |  |     |                           020007b7          	lui	x15,0x2000
+ 810:	      |  |  |     |                           0007af83          	lw	x31,0(x15) # 2000000 <__bss_end>
+     ###         lq_lo = ENCRYPTED_LO;
+     ###         LQ_DECRYPT(lq_hi, lq_lo);
+ 814:	      |  |  |     |                           e5f60737          	lui	x14,0xe5f60
+     ###         lq_lo = ENCRYPTED_LO;
+ 818:	      |  |  |     |                           0047ae83          	lw	x29,4(x15)
+     ###         LQ_DECRYPT(lq_hi, lq_lo);
+ 81c:	      |  |  |     |                           da09b8b7          	lui	x17,0xda09b
+ 820:	      |  |  |     |                           a1b2c7b7          	lui	x15,0xa1b2c
+ 824:	      |  |  |     |                           21749337          	lui	x6,0x21749
+ 828:	      |  |  |     |                           00100593          	addi	x11,x0,1
+ 82c:	      |  |  |     |                           293a06b7          	lui	x13,0x293a0
+ 830:	      |  |  |     |                           71870713          	addi	x14,x14,1816 # e5f60718 <__global_pointer$+0xe3f5ff18>
+ 834:	      |  |  |     |                           3d478793          	addi	x15,x15,980 # a1b2c3d4 <__global_pointer$+0x9fb2bbd4>
+ 838:	      |  |  |     |                           65c88893          	addi	x17,x17,1628 # da09b65c <__global_pointer$+0xd809ae5c>
+ 83c:	      |  |  |     |                           fe330313          	addi	x6,x6,-29 # 21748fe3 <__global_pointer$+0x1f7487e3>
+ 840:	      |  |  |     |                           02000f13          	addi	x30,x0,32
+     ###         return 1;                           // not a node number, or already there
+ 844:	      |  |  |     |                    /----> 01300813          	addi	x16,x0,19
+     ###         LQ_DECRYPT(lq_hi, lq_lo);
+ 848:	      |  |  |     |                    |  /-> 0106de13          	srli	x28,x13,0x10
+ 84c:	      |  |  |     |                    |  |   0116d693          	srli	x13,x13,0x11
+ 850:	      |  |  |     |                    |  |   01f71613          	slli	x12,x14,0x1f
+ 854:	      |  |  |     |                    |  |   01069693          	slli	x13,x13,0x10
+ 858:	      |  |  |     |                    |  |   00d666b3          	or	x13,x12,x13
+ 85c:	      |  |  |     |                    |  |   00175713          	srli	x14,x14,0x1
+ 860:	      |  |  |     |                    |  |   01f79613          	slli	x12,x15,0x1f
+ 864:	      |  |  |     |                    |  |   01fe1e13          	slli	x28,x28,0x1f
+ 868:	      |  |  |     |                    |  |   0017d793          	srli	x15,x15,0x1
+ 86c:	      |  |  |     |                    |  |   fff80813          	addi	x16,x16,-1
+ 870:	      |  |  |     |                    |  |   00e66733          	or	x14,x12,x14
+ 874:	      |  |  |     |                    |  |   00fe67b3          	or	x15,x28,x15
+ 878:	      |  |  |     |                    |  \-- fc0818e3          	bne	x16,x0,848 <__ram_size+0x648>
+ 87c:	      |  |  |     |                    |      01c7d813          	srli	x16,x15,0x1c
+ 880:	      |  |  |     |                    |      00887e13          	andi	x28,x16,8
+ 884:	      |  |  |     |                    |      00281613          	slli	x12,x16,0x2
+ 888:	      |  |  |     |  /-----------------|----- 1a0e0263          	beq	x28,x0,a2c <Path_Planner_Dec.c.19e7d14f+0x160>
+ 88c:	      |  |  |     |  |                 |      01c67613          	andi	x12,x12,28
+ 890:	      |  |  |     |  |                 |      00c35633          	srl	x12,x6,x12
+ 894:	      |  |  |     |  |  /--------------|----> 00f67613          	andi	x12,x12,15
+ 898:	      |  |  |     |  |  |              |      01064633          	xor	x12,x12,x16
+ 89c:	      |  |  |     |  |  |              |      01c61613          	slli	x12,x12,0x1c
+ 8a0:	      |  |  |     |  |  |              |      00c7c7b3          	xor	x15,x15,x12
+ 8a4:	      |  |  |     |  |  |              |      0015d613          	srli	x12,x11,0x1
+ 8a8:	      |  |  |     |  |  |              |      00c74733          	xor	x14,x14,x12
+ 8ac:	      |  |  |     |  |  |              |      01f59613          	slli	x12,x11,0x1f
+ 8b0:	      |  |  |     |  |  |              |      00158593          	addi	x11,x11,1
+ 8b4:	      |  |  |     |  |  |              |      00c6c6b3          	xor	x13,x13,x12
+ 8b8:	      |  |  |     |  |  |              \----- f9e596e3          	bne	x11,x30,844 <__ram_size+0x644>
+ 8bc:	      |  |  |     |  |  |                     00eec633          	xor	x12,x29,x14
+ 8c0:	      |  |  |     |  |  |                     a9703f37          	lui	x30,0xa9703
+ 8c4:	      |  |  |     |  |  |                     d21c9eb7          	lui	x29,0xd21c9
+ 8c8:	      |  |  |     |  |  |                     00ffcfb3          	xor	x31,x31,x15
+ 8cc:	      |  |  |     |  |  |                     01f00e13          	addi	x28,x0,31
+ 8d0:	      |  |  |     |  |  |                     fe5e8e93          	addi	x29,x29,-27 # d21c8fe5 <__global_pointer$+0xd01c87e5>
+ 8d4:	      |  |  |     |  |  |                     64bf0f13          	addi	x30,x30,1611 # a970364b <__global_pointer$+0xa7702e4b>
+ 8d8:	      |  |  |     |  |  |              /----> 00000893          	addi	x17,x0,0
+ 8dc:	      |  |  |     |  |  |              |      00000313          	addi	x6,x0,0
+ 8e0:	      |  |  |     |  |  |              |      01000293          	addi	x5,x0,16
+ 8e4:	      |  |  |     |  |  |              |  /-> 00f65593          	srli	x11,x12,0xf
+ 8e8:	      |  |  |     |  |  |              |  |   01e65813          	srli	x16,x12,0x1e
+ 8ec:	      |  |  |     |  |  |              |  |   00287813          	andi	x16,x16,2
+ 8f0:	      |  |  |     |  |  |              |  |   0015f593          	andi	x11,x11,1
+ 8f4:	      |  |  |     |  |  |              |  |   0105e5b3          	or	x11,x11,x16
+ 8f8:	      |  |  |     |  |  |              |  |   00dfd813          	srli	x16,x31,0xd
+ 8fc:	      |  |  |     |  |  |              |  |   00487813          	andi	x16,x16,4
+ 900:	      |  |  |     |  |  |              |  |   0105e5b3          	or	x11,x11,x16
+ 904:	      |  |  |     |  |  |              |  |   01cfd813          	srli	x16,x31,0x1c
+ 908:	      |  |  |     |  |  |              |  |   00887813          	andi	x16,x16,8
+ 90c:	      |  |  |     |  |  |              |  |   0105e5b3          	or	x11,x11,x16
+ 910:	      |  |  |     |  |  |              |  |   00259813          	slli	x16,x11,0x2
+ 914:	      |  |  |     |  |  |              |  |   0085f593          	andi	x11,x11,8
+ 918:	      |  |  |     |  |  |              |  |   00161613          	slli	x12,x12,0x1
+ 91c:	      |  |  |     |  |  |              |  |   001f9f93          	slli	x31,x31,0x1
+ 920:	      |  |  |     |  |  |  /-----------|--|-- 10058a63          	beq	x11,x0,a34 <Path_Planner_Dec.c.19e7d14f+0x168>
+ 924:	      |  |  |     |  |  |  |           |  |   01c87593          	andi	x11,x16,28
+ 928:	      |  |  |     |  |  |  |           |  |   00bf55b3          	srl	x11,x30,x11
+ 92c:	      |  |  |     |  |  |  |  /--------|--|-> 01c8d813          	srli	x16,x17,0x1c
+ 930:	      |  |  |     |  |  |  |  |        |  |   00f5f593          	andi	x11,x11,15
+ 934:	      |  |  |     |  |  |  |  |        |  |   00431313          	slli	x6,x6,0x4
+ 938:	      |  |  |     |  |  |  |  |        |  |   00489893          	slli	x17,x17,0x4
+ 93c:	      |  |  |     |  |  |  |  |        |  |   fff28293          	addi	x5,x5,-1
+ 940:	      |  |  |     |  |  |  |  |        |  |   00686333          	or	x6,x16,x6
+ 944:	      |  |  |     |  |  |  |  |        |  |   00b8e8b3          	or	x17,x17,x11
+ 948:	      |  |  |     |  |  |  |  |        |  \-- f8029ee3          	bne	x5,x0,8e4 <Path_Planner_Dec.c.19e7d14f+0x18>
+ 94c:	      |  |  |     |  |  |  |  |        |      001e5613          	srli	x12,x28,0x1
+ 950:	      |  |  |     |  |  |  |  |        |      01c7d593          	srli	x11,x15,0x1c
+ 954:	      |  |  |     |  |  |  |  |        |      00c74733          	xor	x14,x14,x12
+ 958:	      |  |  |     |  |  |  |  |        |      0085f813          	andi	x16,x11,8
+ 95c:	      |  |  |     |  |  |  |  |        |      01fe1613          	slli	x12,x28,0x1f
+ 960:	      |  |  |     |  |  |  |  |        |      00c6c6b3          	xor	x13,x13,x12
+ 964:	      |  |  |     |  |  |  |  |        |      00259613          	slli	x12,x11,0x2
+ 968:	      |  |  |     |  |  |  |  |  /-----|----- 0c080a63          	beq	x16,x0,a3c <Path_Planner_Dec.c.19e7d14f+0x170>
+ 96c:	      |  |  |     |  |  |  |  |  |     |      01c67613          	andi	x12,x12,28
+ 970:	      |  |  |     |  |  |  |  |  |     |      00cf5633          	srl	x12,x30,x12
+ 974:	      |  |  |     |  |  |  |  |  |  /--|----> 00f67613          	andi	x12,x12,15
+ 978:	      |  |  |     |  |  |  |  |  |  |  |      00b64633          	xor	x12,x12,x11
+ 97c:	      |  |  |     |  |  |  |  |  |  |  |      01c61613          	slli	x12,x12,0x1c
+ 980:	      |  |  |     |  |  |  |  |  |  |  |      00c7c7b3          	xor	x15,x15,x12
+ 984:	      |  |  |     |  |  |  |  |  |  |  |      01300613          	addi	x12,x0,19
+ 988:	      |  |  |     |  |  |  |  |  |  |  |  /-> 01f75813          	srli	x16,x14,0x1f
+ 98c:	      |  |  |     |  |  |  |  |  |  |  |  |   01f7d593          	srli	x11,x15,0x1f
+ 990:	      |  |  |     |  |  |  |  |  |  |  |  |   00179793          	slli	x15,x15,0x1
+ 994:	      |  |  |     |  |  |  |  |  |  |  |  |   00f867b3          	or	x15,x16,x15
+ 998:	      |  |  |     |  |  |  |  |  |  |  |  |   00171713          	slli	x14,x14,0x1
+ 99c:	      |  |  |     |  |  |  |  |  |  |  |  |   01f6d813          	srli	x16,x13,0x1f
+ 9a0:	      |  |  |     |  |  |  |  |  |  |  |  |   01059593          	slli	x11,x11,0x10
+ 9a4:	      |  |  |     |  |  |  |  |  |  |  |  |   00169693          	slli	x13,x13,0x1
+ 9a8:	      |  |  |     |  |  |  |  |  |  |  |  |   fff60613          	addi	x12,x12,-1
+ 9ac:	      |  |  |     |  |  |  |  |  |  |  |  |   00e86733          	or	x14,x16,x14
+ 9b0:	      |  |  |     |  |  |  |  |  |  |  |  |   00d5e6b3          	or	x13,x11,x13
+ 9b4:	      |  |  |     |  |  |  |  |  |  |  |  \-- fc061ae3          	bne	x12,x0,988 <Path_Planner_Dec.c.19e7d14f+0xbc>
+ 9b8:	      |  |  |     |  |  |  |  |  |  |  |      fffe0e13          	addi	x28,x28,-1
+ 9bc:	      |  |  |     |  |  |  |  |  |  |  |      0067cfb3          	xor	x31,x15,x6
+ 9c0:	      |  |  |     |  |  |  |  |  |  |  |      01174633          	xor	x12,x14,x17
+ 9c4:	      |  |  |     |  |  |  |  |  |  |  \----- f00e1ae3          	bne	x28,x0,8d8 <Path_Planner_Dec.c.19e7d14f+0xc>
+     ###         message[0] = (uint8_t)(lq_hi >> 16);        // byte 1
+ 9c8:	      |  |  |     |  |  |  |  |  |  |         010fd693          	srli	x13,x31,0x10
+     ### 
+     ###     // ##############################################
+     ### 
+     ###     // the message bytes are written into data memory (encrypted block only).
+     ###     if (is_encrypted) {
+     ###         MESSAGE_0 = message[0];
+ 9cc:	      |  |  |     |  |  |  |  |  |  |         020007b7          	lui	x15,0x2000
+     ###         message[1] = (uint8_t)(lq_hi >> 8);         // byte 2
+ 9d0:	      |  |  |     |  |  |  |  |  |  |         008fd713          	srli	x14,x31,0x8
+     ###         message[0] = (uint8_t)(lq_hi >> 16);        // byte 1
+ 9d4:	      |  |  |     |  |  |  |  |  |  |         0ff6f693          	andi	x13,x13,255
+     ###         MESSAGE_0 = message[0];
+ 9d8:	      |  |  |     |  |  |  |  |  |  |         00d78823          	sb	x13,16(x15) # 2000010 <__bss_end+0x10>
+     ###         message[1] = (uint8_t)(lq_hi >> 8);         // byte 2
+ 9dc:	      |  |  |     |  |  |  |  |  |  |         0ff77713          	andi	x14,x14,255
+     ###         MESSAGE_1 = message[1];
+ 9e0:	      |  |  |     |  |  |  |  |  |  |         00e788a3          	sb	x14,17(x15)
+     ###         message[2] = (uint8_t)(lq_hi);              // byte 3
+ 9e4:	      |  |  |     |  |  |  |  |  |  |         0fffff93          	andi	x31,x31,255
+     ###         message[3] = (uint8_t)(lq_lo >> 24);        // byte 4
+ 9e8:	      |  |  |     |  |  |  |  |  |  |         01865593          	srli	x11,x12,0x18
+     ###         MESSAGE_2 = message[2];
+ 9ec:	      |  |  |     |  |  |  |  |  |  |         01f78923          	sb	x31,18(x15)
+     ###         message[4] = (uint8_t)(lq_lo >> 16);        // byte 5
+ 9f0:	      |  |  |     |  |  |  |  |  |  |         01065613          	srli	x12,x12,0x10
+ 9f4:	      |  |  |     |  |  |  |  |  |  |         0ff67613          	andi	x12,x12,255
+     ###         MESSAGE_3 = message[3];
+ 9f8:	      |  |  |     |  |  |  |  |  |  |         00b789a3          	sb	x11,19(x15)
+     ###         MESSAGE_4 = message[4];
+ 9fc:	      |  |  |     |  |  |  |  |  |  |         00c78a23          	sb	x12,20(x15)
+     ###         LQ_DECRYPT(lq_hi, lq_lo);
+ a00:	      |  |  |     \--|--|--|--|--|--|-------> 00000793          	addi	x15,x0,0
+     ###     }
+     ###     // the node values are written into data memory sequentially.
+     ###     for (int i = 0; i < idx; ++i) {
+     ###         NODE_POINT = path_planned[i];
+ a04:	      |  |  |        |  |  |  |  |  |         02000737          	lui	x14,0x2000
+     ###     for (int i = 0; i < idx; ++i) {
+ a08:	      |  |  |        |  |  |  |  |  |  /--/-X 02a7ce63          	blt	x15,x10,a44 <Path_Planner_Dec.c.19e7d14f+0x178>
+     ###     }
+     ###     // Path Planning Computation Done Flag
+     ###     CPU_DONE = 1;
+ a0c:	      |  |  |        |  |  |  |  |  |  |  |   020007b7          	lui	x15,0x2000
+ a10:	      |  |  |        |  |  |  |  |  |  |  |   00100713          	addi	x14,x0,1
+ a14:	      |  |  |        |  |  |  |  |  |  |  |   00e78e23          	sb	x14,28(x15) # 200001c <__bss_end+0x1c>
+     ###         }
+     ### 
+     ###     #endif
+     ### 
+     ###     return 0;
+ a18:	      |  |  |        |  |  |  |  |  |  |  |   03c12083          	lw	x1,60(x2)
+ a1c:	      |  |  |        |  |  |  |  |  |  |  |   03812403          	lw	x8,56(x2)
+ a20:	      |  |  |        |  |  |  |  |  |  |  |   00000513          	addi	x10,x0,0
+ a24:	      |  |  |        |  |  |  |  |  |  |  |   04010113          	addi	x2,x2,64
+ a28:	      |  |  |        |  |  |  |  |  |  |  |   00008067          	jalr	x0,0(x1)
+     ###         LQ_DECRYPT(lq_hi, lq_lo);
+ a2c:	      |  |  |        \--|--|--|--|--|--|--|-> 00c8d633          	srl	x12,x17,x12
+ a30:	      |  |  |           \--|--|--|--|--|--|-- e65ff06f          	jal	x0,894 <__ram_size+0x694>
+ a34:	      |  |  |              \--|--|--|--|--|-> 010ed5b3          	srl	x11,x29,x16
+ a38:	      |  |  |                 \--|--|--|--|-- ef5ff06f          	jal	x0,92c <Path_Planner_Dec.c.19e7d14f+0x60>
+ a3c:	      |  |  |                    \--|--|--|-> 00ced633          	srl	x12,x29,x12
+ a40:	      |  |  |                       \--|--|-- f35ff06f          	jal	x0,974 <Path_Planner_Dec.c.19e7d14f+0xa8>
+     ###         NODE_POINT = path_planned[i];
+ a44:	      |  |  |                          |  \-> 00810693          	addi	x13,x2,8
+ a48:	      |  |  |                          |      00f686b3          	add	x13,x13,x15
+ a4c:	      |  |  |                          |      0006c683          	lbu	x13,0(x13) # 293a0000 <__global_pointer$+0x2739f800>
+     ###     for (int i = 0; i < idx; ++i) {
+ a50:	      |  |  |                          |      00178793          	addi	x15,x15,1
+     ###         NODE_POINT = path_planned[i];
+ a54:	      |  |  |                          |      00d70c23          	sb	x13,24(x14) # 2000018 <__bss_end+0x18>
+     ###     for (int i = 0; i < idx; ++i) {
+ a58:	      |  |  |                          \----- fb1ff06f          	jal	x0,a08 <Path_Planner_Dec.c.19e7d14f+0x13c>
+     ###     uint32_t mi = LQ_OTHER(i), mj = LQ_OTHER(j);
+ a5c:	      \--|--\-------------------------------X cc0712e3          	bne	x14,x0,720 <__ram_size+0x520>
+     ###     uint32_t li = LQ_LEN(i), lj = LQ_LEN(j);
+ a60:	         |                                    08300693          	addi	x13,x0,131
+     ###     uint32_t mi = LQ_OTHER(i), mj = LQ_OTHER(j);
+ a64:	         |                                    02300813          	addi	x16,x0,35
+ a68:	         \----------------------------------- c61ff06f          	jal	x0,6c8 <__ram_size+0x4c8>
+
+00000a6c <lq_node>:
+     ###     uint32_t k = id | (a << 6) | (b << 12) | (ro << 18);   // the node's constant
+ a6c:	          00c79893          	slli	x17,x15,0xc
+ a70:	          01281813          	slli	x16,x16,0x12
+ a74:	          00d8e8b3          	or	x17,x17,x13
+ a78:	          0108e8b3          	or	x17,x17,x16
+ a7c:	          00671713          	slli	x14,x14,0x6
+ a80:	          00e8e733          	or	x14,x17,x14
+     ###     uint32_t c = LQ_C(x);
+ a84:	          00455813          	srli	x16,x10,0x4
+     ###     uint32_t gid = LQ_GID(x);
+ a88:	          00a55893          	srli	x17,x10,0xa
+     ###     if (r == LQ_WHICH) {
+ a8c:	          fff00e13          	addi	x28,x0,-1
+     ### {
+ a90:	          00050313          	addi	x6,x10,0
+     ###     uint32_t c = LQ_C(x);
+ a94:	          03f87813          	andi	x16,x16,63
+     ###     uint32_t gid = LQ_GID(x);
+ a98:	          03f8f893          	andi	x17,x17,63
+     ###     if (r == LQ_WHICH) {
+ a9c:	      /-- 03c59a63          	bne	x11,x28,ad0 <lq_node+0x64>
+     ###         if (!LQ_THETA(k) && LQ_PARENT(k) == c && LQ_ID(k) <= gid && gid <= LQ_END(k)) {
+ aa0:	      |   01c75793          	srli	x15,x14,0x1c
+ aa4:	/-----|-- 0a079463          	bne	x15,x0,b4c <lq_node+0xe0>
+ aa8:	|     |   00c75793          	srli	x15,x14,0xc
+ aac:	|     |   03f7f793          	andi	x15,x15,63
+ ab0:	+-----|-- 09079e63          	bne	x15,x16,b4c <lq_node+0xe0>
+ ab4:	|     |   03f77793          	andi	x15,x14,63
+ ab8:	+-----|-- 08f8ea63          	bltu	x17,x15,b4c <lq_node+0xe0>
+ abc:	|     |   00675713          	srli	x14,x14,0x6
+ ac0:	|     |   03f77713          	andi	x14,x14,63
+ ac4:	+-----|-- 09176463          	bltu	x14,x17,b4c <lq_node+0xe0>
+ ac8:	|     |   00060593          	addi	x11,x12,0
+ acc:	|     |   00008067          	jalr	x0,0(x1)
+     ###     } else if (v == c) {
+ ad0:	+-----\-X 06c81e63          	bne	x16,x12,b4c <lq_node+0xe0>
+     ###         if (r == 0) {
+ ad4:	|  /----- 06058a63          	beq	x11,x0,b48 <lq_node+0xdc>
+     ###         } else if (r == LQ_UP) {
+ ad8:	|  |      00100613          	addi	x12,x0,1
+ adc:	+--|----- 06c59863          	bne	x11,x12,b4c <lq_node+0xe0>
+     ###             if (gid == 0) {
+ ae0:	|  |  /-- 00089463          	bne	x17,x0,ae8 <lq_node+0x7c>
+     ###                 gid = id;                   // the goal's id
+ ae4:	|  |  |   00068893          	addi	x17,x13,0
+     ###             if (!LQ_THETA(k)) {
+ ae8:	|  |  \-> 01c75613          	srli	x12,x14,0x1c
+     ###                 x = (x & ~0xFFFu) | (gid << 10) | (b << 4);         // up to the parent b
+ aec:	|  |      00a89893          	slli	x17,x17,0xa
+     ###             if (!LQ_THETA(k)) {
+ af0:	|  |  /-- 00061e63          	bne	x12,x0,b0c <lq_node+0xa0>
+     ###                 x = (x & ~0xFFFu) | (gid << 10) | (b << 4);         // up to the parent b
+ af4:	|  |  |   fffff737          	lui	x14,0xfffff
+ af8:	|  |  |   00e37533          	and	x10,x6,x14
+ afc:	|  |  |   00479793          	slli	x15,x15,0x4
+ b00:	|  |  |   00f56533          	or	x10,x10,x15
+ b04:	|  |  |   01156533          	or	x10,x10,x17
+ b08:	|  |  |   00008067          	jalr	x0,0(x1)
+     ###                 x = 1 | (LQ_AID(x) << 4) | (gid << 10) | (id << 16)
+ b0c:	|  |  \-> 00c35513          	srli	x10,x6,0xc
+ b10:	|  |      01069693          	slli	x13,x13,0x10
+ b14:	|  |      3f057513          	andi	x10,x10,1008
+     ###                   | (LQ_ROUTE(k) << 22) | (LQ_OFF(k) << 24);        // start the walk
+ b18:	|  |      00d56533          	or	x10,x10,x13
+ b1c:	|  |      01275793          	srli	x15,x14,0x12
+ b20:	|  |      01156533          	or	x10,x10,x17
+ b24:	|  |      01879793          	slli	x15,x15,0x18
+ b28:	|  |      00f56533          	or	x10,x10,x15
+ b2c:	|  |      00475713          	srli	x14,x14,0x4
+ b30:	|  |      00c007b7          	lui	x15,0xc00
+ b34:	|  |      00f77733          	and	x14,x14,x15
+ b38:	|  |      00e56533          	or	x10,x10,x14
+     ###                 x = 1 | (LQ_AID(x) << 4) | (gid << 10) | (id << 16)
+ b3c:	|  |      00156513          	ori	x10,x10,1
+     ###                 r = 0;
+ b40:	|  |      00000593          	addi	x11,x0,0
+ b44:	|  |      00008067          	jalr	x0,0(x1)
+     ###     uint32_t k = id | (a << 6) | (b << 12) | (ro << 18);   // the node's constant
+ b48:	|  \----> 00070593          	addi	x11,x14,0 # fffff000 <__global_pointer$+0xfdffe800>
+     ### }
+ b4c:	\-------> 00008067          	jalr	x0,0(x1)
+
+00000b50 <_set_tls>:
+ b50:	00050213          	addi	x4,x10,0
+ b54:	00008067          	jalr	x0,0(x1)
+
+00000b58 <memcpy>:
+ b58:	       00050313          	addi	x6,x10,0
+ b5c:	/----- 00060e63          	beq	x12,x0,b78 <memcpy+0x20>
+ b60:	|  /-> 00058383          	lb	x7,0(x11)
+ b64:	|  |   00730023          	sb	x7,0(x6)
+ b68:	|  |   fff60613          	addi	x12,x12,-1
+ b6c:	|  |   00130313          	addi	x6,x6,1
+ b70:	|  |   00158593          	addi	x11,x11,1
+ b74:	|  \-- fe0616e3          	bne	x12,x0,b60 <memcpy+0x8>
+ b78:	\----> 00008067          	jalr	x0,0(x1)
+
+00000b7c <memset>:
+ b7c:	       00050313          	addi	x6,x10,0
+ b80:	/----- 00060a63          	beq	x12,x0,b94 <memset+0x18>
+ b84:	|  /-> 00b30023          	sb	x11,0(x6)
+ b88:	|  |   fff60613          	addi	x12,x12,-1
+ b8c:	|  |   00130313          	addi	x6,x6,1
+ b90:	|  \-- fe061ae3          	bne	x12,x0,b84 <memset+0x8>
+ b94:	\----> 00008067          	jalr	x0,0(x1)
